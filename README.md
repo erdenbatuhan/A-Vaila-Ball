@@ -1,2 +1,2 @@
-# Flappy Ball (Mobile Version)
-A game called Flappy Ball.
+# A Vaila Ball (Mobile Version)
+A game called A Vaila Ball.
