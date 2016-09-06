@@ -1,6 +1,6 @@
 ﻿//
 //  Leaderboards.cs
-//  Flappy Ball
+//  A Vaila Ball - Mobile
 //
 //  Created by Batuhan Erden.
 //  Copyright © 2016 Batuhan Erden. All rights reserved.
@@ -12,7 +12,7 @@ using System.Collections;
 
 public class Leaderboards : MonoBehaviour {
 
-	private const string URL_GET_LEADERBOARDS = "http://138.68.143.170/FlappyBall/lb721gf126f1267e2neh21w21gd13f31f13.php";
+	private const string URL_GET_LEADERBOARDS = "http://138.68.143.170/VailaBall_DATA/Mobile_DATA/lb721gf126f1267e2neh21w21gd13f31f13.php";
 	private const string CONSOLE_INITIAL = "  ~ Console: ";
 	[SerializeField] private Text console;
 	private string[] leaderboards = null;

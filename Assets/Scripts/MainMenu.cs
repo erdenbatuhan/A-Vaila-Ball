@@ -1,6 +1,6 @@
 ﻿//
 //  MainMenu.cs
-//  Flappy Ball
+//  A Vaila Ball - Mobile
 //
 //  Created by Batuhan Erden.
 //  Copyright © 2016 Batuhan Erden. All rights reserved.
@@ -12,7 +12,7 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 	
-	private const string URL_SAVE = "http://138.68.143.170/FlappyBall/s82g932buig23bi3n2832ud3b23bf2382db33872.php";
+	private const string URL_SAVE = "http://138.68.143.170/VailaBall_DATA/Mobile_DATA/s82g932buig23bi3n2832ud3b23bf2382db33872.php";
 	private const string CONSOLE_INITIAL = "  ~ Console: ";
 	[SerializeField] private Text console;
 

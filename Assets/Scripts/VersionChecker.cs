@@ -1,6 +1,6 @@
 ﻿//
 //  VersionChecker.cs
-//  Flappy Ball
+//  A Vaila Ball - Mobile
 //
 //  Created by Batuhan Erden.
 //  Copyright © 2016 Batuhan Erden. All rights reserved.
@@ -12,9 +12,9 @@ using System.Collections;
 
 public class VersionChecker : MonoBehaviour {
 
-	private const string URL_VERSION = "http://138.68.143.170/FlappyBall/v2148921ub21f21nf12m1920j129.txt";
-	private const string URL_UPDATE_PAGE = "http://vailaball.me/Download/FlappyBall";
-	private const string VERSION = "1.0.1";
+	private const string URL_VERSION = "http://138.68.143.170/VailaBall_DATA/Mobile_DATA/v2148921ub21f21nf12m1920j129.txt";
+	private const string URL_UPDATE_PAGE = "http://vailaball.me/Download";
+	private const string VERSION = "1.0.2";
 	private const string CONSOLE_INITIAL = "  ~ Console: ";
 	[SerializeField] private Text console;
 	private string[] websitesToTest = { "http://www.google.com", "http://www.ebay.com" };

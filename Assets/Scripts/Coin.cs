@@ -1,6 +1,6 @@
 ﻿//
 //  Coin.cs
-//  Flappy Ball
+//  A Vaila Ball - Mobile
 //
 //  Created by Batuhan Erden.
 //  Copyright © 2016 Batuhan Erden. All rights reserved.

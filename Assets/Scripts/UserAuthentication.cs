@@ -1,6 +1,6 @@
 ﻿//
 //  UserAuthentication.cs
-//  Flappy Ball
+//  A Vaila Ball - Mobile
 //
 //  Created by Batuhan Erden.
 //  Copyright © 2016 Batuhan Erden. All rights reserved.
@@ -12,9 +12,9 @@ using System.Collections;
 
 public class UserAuthentication : MonoBehaviour {
 	
-	private const string URL_REGISTER = "http://138.68.143.170/FlappyBall/r88732gb23g7g3b3u2g1873rb13ubdn131mc218nec811.php";
-	private const string URL_LOGIN = "http://138.68.143.170/FlappyBall/l612r76r211f6r31fy3v186ef11b631t631f.php";
-	private const string URL_GET_USER_INFO = "http://138.68.143.170/FlappyBall/g2t7g3129em281f1hf12h12312.php";
+	private const string URL_REGISTER = "http://138.68.143.170/VailaBall_DATA/Mobile_DATA/r88732gb23g7g3b3u2g1873rb13ubdn131mc218nec811.php";
+	private const string URL_LOGIN = "http://138.68.143.170/VailaBall_DATA/Mobile_DATA/l612r76r211f6r31fy3v186ef11b631t631f.php";
+	private const string URL_GET_USER_INFO = "http://138.68.143.170/VailaBall_DATA/Mobile_DATA/g2t7g3129em281f1hf12h12312.php";
 	private const string HASH_CODE = "y17rct1y894bt1274128c41n2y7e12he9128bcr7g21wqbuqiubqwpqhex27egc12hr137r";
 	private const string CONSOLE_INITIAL = "  ~ Console: ";
 	[SerializeField] private Text console;
