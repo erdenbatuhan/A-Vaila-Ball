@@ -1,4 +1,4 @@
-﻿//
+//
 //  Leaderboards.cs
 //  A Vaila Ball - Mobile
 //
