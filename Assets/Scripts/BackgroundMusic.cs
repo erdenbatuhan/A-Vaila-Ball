@@ -7,21 +7,16 @@
 //
 
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BackgroundMusic : MonoBehaviour {
-	
-	public static float volume = 0.25f;
 	
 	private void Start() {
 		if (Ball.getUsername() == null)
 			GetComponent<AudioSource>().Play();
 		else
 			Destroy(gameObject);
-	}
-	
-	private void Update() {
-		GetComponent<AudioSource>().volume = volume;
 	}
 	
 	private void Awake() {

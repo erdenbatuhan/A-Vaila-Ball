@@ -57,7 +57,7 @@ public class Leaderboards : MonoBehaviour {
 			if (Ball.getUsername() == leaderboards[i])
 				u.transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.red;
 
-			u.transform.parent = transform;
+			u.transform.SetParent(transform);
 			u.transform.GetChild(0).gameObject.GetComponent<Text>().text = userInformation;
 			u.transform.localPosition = new Vector2(803, y);
 			u.transform.localScale = new Vector3(2.0075f, 2.0075f, 1);
