@@ -1,4 +1,4 @@
-﻿//
+//
 //  BackgroundMusic.cs
 //  A Vaila Ball - Mobile
 //
