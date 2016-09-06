@@ -31,6 +31,16 @@ public class UserAuthentication : MonoBehaviour {
 
 			Destroy(this.gameObject);
 		}
+
+		setMaximumLengthTo(12);
+	}
+
+	private void setMaximumLengthTo(int maximumLength) {
+		if (username.text.Length > maximumLength)
+			username.text = username.text.Substring(0, maximumLength);
+
+		if (password.text.Length > maximumLength)
+			password.text = password.text.Substring(0, maximumLength);
 	}
 
 	public void handleLogin() {
