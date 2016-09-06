@@ -543,7 +543,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEADERBOARDS
+  m_Text: LEADERBOARD
 --- !u!222 &294767588
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -717,7 +717,7 @@ GameObject:
   - 114: {fileID: 468592010}
   - 114: {fileID: 468592009}
   m_Layer: 5
-  m_Name: LeaderboardsButton
+  m_Name: LeaderboardButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1212299588}
-          m_MethodName: handleLeaderboards
+          m_MethodName: handleLeaderboard
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2429,7 +2429,7 @@ GameObject:
   - 4: {fileID: 1212299587}
   - 114: {fileID: 1212299588}
   m_Layer: 0
-  m_Name: Leaderboards
+  m_Name: Leaderboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2864,7 +2864,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Leaderboards
+  m_Text: Leaderboard
 --- !u!222 &1468717048
 CanvasRenderer:
   m_ObjectHideFlags: 0
