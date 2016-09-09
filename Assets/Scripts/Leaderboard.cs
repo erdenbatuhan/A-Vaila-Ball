@@ -13,6 +13,7 @@ using System.Collections;
 public class Leaderboard : MonoBehaviour {
 
 	private const string URL_GET_LEADERBOARD = "http://138.68.143.170/VailaBall_DATA/Mobile_DATA/lb721gf126f1267e2neh21w21gd13f31f13.php";
+	private const string URL_LEADERBOARD_PAGE = "http://vailaball.me/Leaderboard";
 	private const string CONSOLE_INITIAL = "  ~ Console: ";
 	[SerializeField] private Text console;
 	private string[] leaderboard = null;
@@ -22,9 +23,13 @@ public class Leaderboard : MonoBehaviour {
 	public GameObject userInfoBox;
 	public GameObject hr;
 
-    private void Update () {
+    private void Update() {
         if (usernameBox.transform.GetChild(0).gameObject.GetComponent<Text>().text.Length == 0)
             usernameBox.transform.GetChild(0).gameObject.GetComponent<Text>().text = Ball.getUsername();
+    }
+
+    public void seeMore() {
+		Application.OpenURL(URL_LEADERBOARD_PAGE);
     }
 
 	public void handleLeaderboard() {
