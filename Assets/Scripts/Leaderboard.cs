@@ -16,20 +16,25 @@ public class Leaderboard : MonoBehaviour {
 	private const string CONSOLE_INITIAL = "  ~ Console: ";
 	[SerializeField] private Text console;
 	private string[] leaderboard = null;
-	public GameObject userField;
-	public GameObject mainMenu;
+    private bool isUserInLeaderboards = false;
+    public GameObject canvasMainMenu;
+    public GameObject usernameBox;
+	public GameObject userInfoBox;
+	public GameObject hr;
+
+    private void Update () {
+        if (usernameBox.transform.GetChild(0).gameObject.GetComponent<Text>().text.Length == 0)
+            usernameBox.transform.GetChild(0).gameObject.GetComponent<Text>().text = Ball.getUsername();
+    }
 
 	public void handleLeaderboard() {
-		mainMenu.SetActive(false);
-
-		foreach (Transform child in transform)
-			child.gameObject.SetActive(true);
-
+		canvasMainMenu.SetActive(false);
 		StartCoroutine(getLeaderboard());
 	}
 
 	private IEnumerator getLeaderboard() {
 		WWWForm form = new WWWForm();
+        form.AddField("form_username", Ball.getUsername());
 		form.AddField("form_hash", UserAuthentication.getHashCode());
 
 		WWW www = new WWW(URL_GET_LEADERBOARD, form);
@@ -42,7 +47,7 @@ public class Leaderboard : MonoBehaviour {
 			else
 				console.text = CONSOLE_INITIAL + www.error;
 		} else {
-			console.text = CONSOLE_INITIAL + "Top players are being shown....";
+			console.text = CONSOLE_INITIAL + "Leaderboard is loaded.";
 			leaderboard = www.text.Split('|');
 
 			showLeaderboard();
@@ -50,25 +55,45 @@ public class Leaderboard : MonoBehaviour {
 	}
 
 	private void showLeaderboard() {
-		for (int p = 1, i = 0, y = 730; i < leaderboard.Length - 1 && y >= 130; p++, i += 2, y -= 60) {
-			string userInformation = p + ". " + leaderboard[i] + " has accumulated " + leaderboard[i + 1] + " points.";
-			GameObject u = Instantiate(userField);
+        for (int rank = 1, o = 0, y = -75; rank <= 10; rank++, o += 2, y -= 30)
+	        cloneUserInfoBox(rank, o, y);
 
-			if (Ball.getUsername() == leaderboard[i])
-				u.transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.red;
-
-			u.transform.SetParent(transform);
-			u.transform.GetChild(0).gameObject.GetComponent<Text>().text = userInformation;
-			u.transform.localPosition = new Vector2(803, y);
-			u.transform.localScale = new Vector3(2.0075f, 2.0075f, 1);
-		}
+        if (!isUserInLeaderboards)
+            printPersonalRank();
 	}
 
-	public void back() {
-		mainMenu.SetActive(true);
+    private void cloneUserInfoBox(int rank, int o, int y) {
+		GameObject tmp = Instantiate(userInfoBox);
+		tmp.transform.GetChild(0).gameObject.GetComponent<Text>().text = rank + ". " + leaderboard[o] + " has accumulated " + leaderboard[o + 1] + " points.";
 
-		foreach (Transform child in transform)
-			child.gameObject.SetActive(false);
+        if (Ball.getUsername() == leaderboard[o]) {
+			tmp.transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.red;
+            isUserInLeaderboards = true;
+        }
+        
+        customizeTransformComponentOf(tmp, y);
+    }
+
+    private void printPersonalRank () {
+        string info = leaderboard[leaderboard.Length - 2] + ". " + Ball.getUsername() + " has accumulated " + leaderboard[leaderboard.Length - 1] + " points.";
+
+        GameObject tmp = Instantiate(userInfoBox);
+		tmp.transform.GetChild(0).gameObject.GetComponent<Text>().text = info;
+        tmp.transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.red;
+        
+        customizeTransformComponentOf(tmp, -395);
+        hr.SetActive(true);
+    }
+
+    private void customizeTransformComponentOf(GameObject obj, int y) {
+        obj.transform.SetParent(transform.parent);
+        obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, y);
+		obj.transform.localScale = new Vector3(1, 1, 1);
+    }
+
+	public void back() {
+		canvasMainMenu.SetActive(true);
+		gameObject.transform.parent.gameObject.SetActive(false);
 		
 		console.text = CONSOLE_INITIAL + "Please do not forget to save your game!";
 	}

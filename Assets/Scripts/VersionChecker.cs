@@ -18,7 +18,8 @@ public class VersionChecker : MonoBehaviour {
 	private const string CONSOLE_INITIAL = "  ~ Console: ";
 	[SerializeField] private Text console;
 	private string[] websitesToTest = { "http://www.google.com", "http://www.ebay.com" };
-	public GameObject userAuthentication;
+    public GameObject canvasUpdate;
+	public GameObject canvasUserAuthentication;
 
 	private void Start() {
 		startChecking();
@@ -48,17 +49,17 @@ public class VersionChecker : MonoBehaviour {
 		yield return www;
 
 		if (VERSION != getVersion(www.text)) {
-			console.text = CONSOLE_INITIAL + "Please update your game to continue....";
-
-			foreach (Transform child in transform)
-				child.gameObject.SetActive(true);
+			console.text = CONSOLE_INITIAL + "Please update your game to continue.";
+            canvasUpdate.SetActive(true);
+            Destroy(canvasUserAuthentication);
 		} else {
 			if (Ball.getUsername() == null)
 				console.text = CONSOLE_INITIAL + "Version check succeeded!";
 			else
 				console.text = CONSOLE_INITIAL + "Please do not forget to save your game!";
 
-			userAuthentication.SetActive(true);
+			canvasUserAuthentication.SetActive(true);
+            canvasUpdate.transform.SetParent(transform);
 			Destroy(gameObject);
 		}
 	}

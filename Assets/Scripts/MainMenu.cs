@@ -15,6 +15,13 @@ public class MainMenu : MonoBehaviour {
 	private const string URL_SAVE = "http://138.68.143.170/VailaBall_DATA/Mobile_DATA/s82g932buig23bi3n2832ud3b23bf2382db33872.php";
 	private const string CONSOLE_INITIAL = "  ~ Console: ";
 	[SerializeField] private Text console;
+	public GameObject usernameBox;
+    public GameObject canvasLeaderboard;
+
+    private void Update () {
+        if (usernameBox.transform.GetChild(0).gameObject.GetComponent<Text>().text.Length == 0)
+            usernameBox.transform.GetChild(0).gameObject.GetComponent<Text>().text = Ball.getUsername();
+    }
 
 	public void exit() {
 		Application.Quit();
@@ -31,6 +38,10 @@ public class MainMenu : MonoBehaviour {
 	public void openShop() {
 		Debug.Log("Shop!");
 	}
+
+    public void openLeaderboard () {
+        canvasLeaderboard.SetActive(true);
+    }
 
 	private IEnumerator saveGameToDatabase() {
 		WWWForm form = new WWWForm();

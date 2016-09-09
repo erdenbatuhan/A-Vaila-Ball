@@ -20,17 +20,18 @@ public class UserAuthentication : MonoBehaviour {
 	[SerializeField] private Text console;
 	[SerializeField] private InputField username;
 	[SerializeField] private InputField password;
-	[SerializeField] private GameObject usernameBox;
-	public GameObject mainMenu;
+    public GameObject canvasMainMenu;
+
+    private void Start() {
+        if (PlayerPrefs.GetString("saved_username") != null)
+            username.text = PlayerPrefs.GetString("saved_username");
+    }
 
 	private void Update() {
-		if (Ball.getUsername() != null) {
-			mainMenu.SetActive(true);
-			usernameBox.SetActive(true);
-			usernameBox.transform.GetChild(0).gameObject.GetComponent<Text>().text = Ball.getUsername();
-
-			Destroy(this.gameObject);
-		}
+        if (Ball.getUsername() != null) {
+            canvasMainMenu.SetActive(true);
+            Destroy(gameObject.transform.parent.gameObject);
+        }
 
 		setMaximumLengthTo(12);
 	}
@@ -80,20 +81,18 @@ public class UserAuthentication : MonoBehaviour {
 		console.text = CONSOLE_INITIAL + "Getting user information....";
 		yield return www; // Wait www.
 
-		if (www.error != null) {
-			if (www.error.Contains("Network"))
-				console.text = CONSOLE_INITIAL + "Please check your internet connection....";
-			else
-				console.text = CONSOLE_INITIAL + www.error;
-		} else {
-			console.text = CONSOLE_INITIAL + "Please do not forget to save your game!";
-			string[] output = www.text.Split('|');
-
-			Ball.setHighScore(int.Parse(output[1]));
-			Ball.setUsername(output[0]);
-
-			usernameBox.SetActive(true);
-			usernameBox.transform.GetChild(0).gameObject.GetComponent<Text>().text = Ball.getUsername();
+        if (www.error != null) {
+            if (www.error.Contains("Network"))
+                console.text = CONSOLE_INITIAL + "Please check your internet connection....";
+            else
+                console.text = CONSOLE_INITIAL + www.error;
+        } else {
+            console.text = CONSOLE_INITIAL + "Please do not forget to save your game!";
+            string[] output = www.text.Split('|');
+            
+            PlayerPrefs.SetString("saved_username", output[0]);
+            Ball.setHighScore(int.Parse(output[1]));
+            Ball.setUsername(output[0]);
 		}
 	}	
 
