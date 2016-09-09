@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour {
 
     private void Update () {
         if (usernameBox.transform.GetChild(0).gameObject.GetComponent<Text>().text.Length == 0)
-            usernameBox.transform.GetChild(0).gameObject.GetComponent<Text>().text = Ball.getUsername();
+            usernameBox.transform.GetChild(0).gameObject.GetComponent<Text>().text = UserAuthentication.user.getUsername();
     }
 
 	public void exit() {
@@ -45,8 +45,8 @@ public class MainMenu : MonoBehaviour {
 
 	private IEnumerator saveGameToDatabase() {
 		WWWForm form = new WWWForm();
-		form.AddField("form_username", Ball.getUsername());
-		form.AddField("form_score", Ball.getHighScore());
+		form.AddField("form_username", UserAuthentication.user.getUsername());
+		form.AddField("form_score", UserAuthentication.user.getHighScore());
 		form.AddField("form_hash", UserAuthentication.getHashCode());
 		
 		WWW www = new WWW(URL_SAVE, form);

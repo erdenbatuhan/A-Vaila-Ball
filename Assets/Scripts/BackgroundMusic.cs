@@ -13,7 +13,7 @@ using System.Collections;
 public class BackgroundMusic : MonoBehaviour {
 	
 	private void Start() {
-		if (Ball.getUsername() == null)
+		if (UserAuthentication.user == null)
 			GetComponent<AudioSource>().Play();
 		else
 			Destroy(gameObject);

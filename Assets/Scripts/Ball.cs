@@ -13,8 +13,6 @@ public class Ball : MonoBehaviour {
 	
 	private const int SPEED_FORCE = 8;
 	private const int JUMP_HEIGHT = 8;
-	private static string username;
-	private static int highScore;
 	private int score = 0;
 	private bool spellActivated = false;
 	private Material material;
@@ -35,11 +33,11 @@ public class Ball : MonoBehaviour {
 		move();
 		getTracked();
 
-		if (score >= highScore)
-			highScore = score;
+		if (score >= UserAuthentication.user.getHighScore())
+			UserAuthentication.user.setHighScore(score);
 		
-		usernameText.text = username;
-		scoreText.text = "Score: " + score + "/" + highScore;
+		usernameText.text = UserAuthentication.user.getUsername();
+		scoreText.text = "Score: " + score + "/" + UserAuthentication.user.getHighScore();
 	}
 
 	private void move() {
@@ -93,22 +91,6 @@ public class Ball : MonoBehaviour {
 	} 
 
 	/* ---------------------------- GETTERS & SETTERS ---------------------------- */
-
-	public static string getUsername() {
-		return Ball.username;
-	}
-
-	public static void setUsername(string username) {
-		Ball.username = username;
-	}
-
-	public static int getHighScore() {
-		return Ball.highScore;
-	}
-
-	public static void setHighScore(int highScore) {
-		Ball.highScore = highScore;
-	}
 	
 	public int getScore() {
 		return score;

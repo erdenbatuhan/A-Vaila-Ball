@@ -53,7 +53,7 @@ public class VersionChecker : MonoBehaviour {
             canvasUpdate.SetActive(true);
             Destroy(canvasUserAuthentication);
 		} else {
-			if (Ball.getUsername() == null)
+			if (UserAuthentication.user == null)
 				console.text = CONSOLE_INITIAL + "Version check succeeded!";
 			else
 				console.text = CONSOLE_INITIAL + "Please do not forget to save your game!";

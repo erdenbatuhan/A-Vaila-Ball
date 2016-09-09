@@ -20,6 +20,7 @@ public class UserAuthentication : MonoBehaviour {
 	[SerializeField] private Text console;
 	[SerializeField] private InputField username;
 	[SerializeField] private InputField password;
+    public static User user;
     public GameObject canvasMainMenu;
 
     private void Start() {
@@ -28,7 +29,7 @@ public class UserAuthentication : MonoBehaviour {
     }
 
 	private void Update() {
-        if (Ball.getUsername() != null) {
+        if (user != null) {
             canvasMainMenu.SetActive(true);
             Destroy(gameObject.transform.parent.gameObject);
         }
@@ -89,11 +90,10 @@ public class UserAuthentication : MonoBehaviour {
         } else {
             console.text = CONSOLE_INITIAL + "Please do not forget to save your game!";
             string[] output = www.text.Split('|');
-            
-            PlayerPrefs.SetString("saved_username", output[0]);
-            Ball.setHighScore(int.Parse(output[1]));
-            Ball.setUsername(output[0]);
-		}
+
+            PlayerPrefs.SetString("saved_username", output[1]);
+            user = new User(int.Parse(output[0]), output[1], int.Parse(output[2]));
+        }
 	}	
 
 	public void handleRegister() {
