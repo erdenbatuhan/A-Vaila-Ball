@@ -2211,6 +2211,12 @@ MonoBehaviour:
   camera: {fileID: 1659586718}
   upperCatcher: {fileID: 1392676835}
   lowerCatcher: {fileID: 1252367288}
+  skins:
+  - {fileID: 2100000, guid: 377311aa464374dab8543f36a5f3b581, type: 2}
+  - {fileID: 2100000, guid: 2e57814c950111c468fd86976a0b4f65, type: 2}
+  - {fileID: 2100000, guid: 3e715a5fd1500e74796299818e0512a9, type: 2}
+  - {fileID: 2100000, guid: 1bffa504f56e9ea429f778872fb6ecdd, type: 2}
+  - {fileID: 2100000, guid: 794f4d32408bba54584f1698aef595b6, type: 2}
   immunityMaterial: {fileID: 2100000, guid: e5b42c41492e44540a80557f491fd421, type: 2}
 --- !u!1 &1130989590
 GameObject:

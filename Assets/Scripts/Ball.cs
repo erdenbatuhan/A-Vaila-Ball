@@ -23,7 +23,7 @@ public class Ball : MonoBehaviour {
 	public Material immunityMaterial;
 
 	private void Start() {
-		material = GetComponent<Renderer>().material;
+        material = GetComponent<Renderer>().material;
 	}                    
 
 	private void Update() {
