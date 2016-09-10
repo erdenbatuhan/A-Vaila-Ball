@@ -60,7 +60,7 @@ public class Leaderboard : MonoBehaviour {
 	}
 
 	private void showLeaderboard() {
-        for (int rank = 1, o = 0, y = -75; rank <= 10; rank++, o += 2, y -= 30)
+        for (int rank = 1, o = 0, y = -85; rank <= 10; rank++, o += 2, y -= 30)
 	        cloneUserInfoBox(rank, o, y);
 
         if (!isUserInLeaderboards)
@@ -86,7 +86,7 @@ public class Leaderboard : MonoBehaviour {
 		tmp.transform.GetChild(0).gameObject.GetComponent<Text>().text = info;
         tmp.transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.red;
         
-        customizeTransformComponentOf(tmp, -395);
+        customizeTransformComponentOf(tmp, -405);
         hr.SetActive(true);
     }
 
