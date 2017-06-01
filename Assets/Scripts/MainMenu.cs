@@ -1,6 +1,6 @@
 ﻿//
 //  MainMenu.cs
-//  A Vaila Ball - Mobile
+//  A Vaila Ball
 //
 //  Created by Batuhan Erden.
 //  Copyright © 2016 Batuhan Erden. All rights reserved.
